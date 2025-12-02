@@ -18,6 +18,8 @@
 [![Powered by Bill Wurtz](https://img.shields.io/badge/Powered%20by-Bill%20Wurtz-00d4ff?style=for-the-badge)](https://www.youtube.com/@billwurtz)
 [![Chainguard Inside](https://img.shields.io/badge/Chainguard-Inside-00b4d8?style=for-the-badge)](https://chainguard.dev)
 
+### 🌐 [**LIVE DEMO →**](https://billwurtzradio.up.railway.app/)
+
 </div>
 
 ---
@@ -103,6 +105,12 @@ Skip too many songs too fast? The player fights back. Skip 5 songs in under 10 s
 ---
 
 ## 🚀 Launch Sequence
+
+### 🌐 Production (The Instant Way)
+
+Just visit: [https://billwurtzradio.up.railway.app/](https://billwurtzradio.up.railway.app/)
+
+No installation required. Start vibing immediately.
 
 ### 🐳 Docker (The Cool Way)
 

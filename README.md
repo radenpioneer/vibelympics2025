@@ -38,6 +38,8 @@ After registering, take next steps:
 [![Chainguard Inside](https://img.shields.io/badge/Chainguard-Inside-00b4d8?style=for-the-badge)](https://chainguard.dev)
 [![Has Penalty Mode](https://img.shields.io/badge/Has-Penalty%20Mode-ff4444?style=for-the-badge)](round_1/)
 
+**🌐 [LIVE DEMO](https://billwurtzradio.up.railway.app/) | 📖 [Full Documentation](round_1/README.md)**
+
 </div>
 
 #### 🎭 What Is It?
@@ -58,6 +60,9 @@ A fullscreen music video player featuring **98 Bill Wurtz videos** with an inter
 
 #### 🚀 Quick Start
 
+**Try it live:** [https://billwurtzradio.up.railway.app/](https://billwurtzradio.up.railway.app/)
+
+Or run locally:
 ```bash
 cd round_1
 docker build -t bill-wurtz-radio .
