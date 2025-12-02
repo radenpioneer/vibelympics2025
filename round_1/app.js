@@ -361,7 +361,7 @@ function player() {
     // Update page title with current song (only when playing)
     updatePageTitle() {
       if (this.isPlaying) {
-        const loveIndicator = this.isLoved(this.currentVideo.id) ? '❤️ ' : '';
+        const loveIndicator = this.isLoved(this.currentVideo.id) ? '[❤️] ' : '';
         document.title = `${loveIndicator}${this.currentVideo.emojiTitle} - ${this.projectName}`;
       } else {
         document.title = this.projectName;
@@ -434,6 +434,9 @@ function player() {
         this.showToast('❤️');
       }
       this.saveLovedSongs();
+      
+      // Update page title immediately to reflect love status
+      this.updatePageTitle();
     },
 
     showToast(message) {
