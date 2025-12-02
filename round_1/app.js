@@ -428,10 +428,10 @@ function player() {
       
       if (wasLoved) {
         this.lovedSongs.delete(this.currentVideo.id);
-        this.showToast('💔 Unloved');
+        this.showToast('💔');
       } else {
         this.lovedSongs.add(this.currentVideo.id);
-        this.showToast('❤️ Loved!');
+        this.showToast('❤️');
       }
       this.saveLovedSongs();
     },
