@@ -284,7 +284,8 @@ Is it fun? **Hell yeah.** 🎉
 
 ---
 
-## 📝 Notes for Judges
+<details>
+<summary><h2>📝 Notes for Judges</h2></summary>
 
 ### 🎯 Challenge Interpretation
 
@@ -327,6 +328,8 @@ Is it fun? **Hell yeah.** 🎉
 - The penalty countdown pulses with a red glow
 - Currently playing song in history has a pulsing ▶️ indicator
 - Loved songs in the shuffle queue appear 3x more often (weighted algorithm)
+
+</details>
 
 ---
 
