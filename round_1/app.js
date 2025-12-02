@@ -17,6 +17,11 @@ function player() {
     recentPlaysIndex: 0, // Track position in recent plays for navigation
     projectName: '🎵📻🎨',
     
+    // Toast notification
+    toastVisible: false,
+    toastMessage: '',
+    toastTimeout: null,
+    
     // Skip tracking
     consecutiveSkips: 0,
     songsUntilNextEnabled: 0,
@@ -356,7 +361,8 @@ function player() {
     // Update page title with current song (only when playing)
     updatePageTitle() {
       if (this.isPlaying) {
-        document.title = `${this.currentVideo.emojiTitle} - ${this.projectName}`;
+        const loveIndicator = this.isLoved(this.currentVideo.id) ? '❤️ ' : '';
+        document.title = `${loveIndicator}${this.currentVideo.emojiTitle} - ${this.projectName}`;
       } else {
         document.title = this.projectName;
       }
@@ -418,12 +424,32 @@ function player() {
     },
 
     toggleLove() {
-      if (this.lovedSongs.has(this.currentVideo.id)) {
+      const wasLoved = this.lovedSongs.has(this.currentVideo.id);
+      
+      if (wasLoved) {
         this.lovedSongs.delete(this.currentVideo.id);
+        this.showToast('💔 Unloved');
       } else {
         this.lovedSongs.add(this.currentVideo.id);
+        this.showToast('❤️ Loved!');
       }
       this.saveLovedSongs();
+    },
+
+    showToast(message) {
+      // Clear existing timeout
+      if (this.toastTimeout) {
+        clearTimeout(this.toastTimeout);
+      }
+
+      // Show toast
+      this.toastMessage = message;
+      this.toastVisible = true;
+
+      // Hide after 2 seconds
+      this.toastTimeout = setTimeout(() => {
+        this.toastVisible = false;
+      }, 2000);
     },
 
     isLoved(videoId) {

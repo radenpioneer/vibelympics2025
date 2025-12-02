@@ -83,6 +83,9 @@
       </div>
     </div>
 
+    <!-- Toast Notification -->
+    <div class="toast" x-show="toastVisible" :class="{ 'hidden': !toastVisible }" x-text="toastMessage"></div>
+
   </div>
 
   <script src="app.js"></script>
