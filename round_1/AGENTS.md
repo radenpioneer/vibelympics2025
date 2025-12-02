@@ -233,6 +233,8 @@ Web-based video player that plays Bill Wurtz music videos from a YouTube playlis
 - ▶️/⏸️ **Play/Pause**: Control playback
 - 🎵 **Emoji Titles**: All video titles converted to emoji representations
 - ⚠️ **Penalty Mode**: Skip detection - 5 skips under 10 seconds locks next button for 3 songs
+- 🍞 **Toast Notifications**: Emoji-only feedback (❤️ / 💔) when loving/unloving songs
+- ❤️ **Loved Indicator**: Browser tab title shows ❤️ emoji when playing a loved song
 
 #### UI Elements (All Emoji)
 - Control buttons: ⏮️ ▶️/⏸️ ⏭️
@@ -244,6 +246,8 @@ Web-based video player that plays Bill Wurtz music videos from a YouTube playlis
 - Recent plays sidebar: Collapsible list with emoji titles
 - Penalty countdown: 1️⃣2️⃣3️⃣ (replaces ⏭️ during penalty)
 - Currently playing indicator: 🔊 in recent plays list
+- Toast notification: ❤️ (loved) / 💔 (unloved) - appears at top center for 2 seconds
+- Browser tab title: Shows ❤️ emoji when playing a loved song
 
 ### Technical Challenges & Solutions
 
@@ -386,6 +390,10 @@ round_1/
 - [x] Keyboard shortcuts work (Space, Arrows, V, M, C, X)
 - [x] Mute/unmute functionality (M key)
 - [x] Page title updates with song emoji when playing
+- [x] Page title shows ❤️ emoji for loved songs
+- [x] Toast notification on love/unlove (❤️ / 💔)
+- [x] Toast is emoji-only (no text)
+- [x] Toast auto-hides after 2 seconds
 - [x] Responsive layout (mobile, tablet, desktop)
 - [x] Container builds successfully with Chainguard nginx
 - [x] Container runs and serves on port 8080
@@ -506,6 +514,8 @@ playlist.forEach(video => {
 - ✅ localStorage persistence (recent plays, loved songs, skip tracking)
 - ✅ Resume from last played song
 - ✅ Love button with weighted shuffle (3x chance)
+- ✅ Toast notifications (emoji-only: ❤️ / 💔)
+- ✅ Loved song indicator in browser tab title (❤️ emoji)
 - ✅ Smart navigation (previous/next through history)
 - ✅ Penalty mode (skip detection and enforcement)
 - ✅ Keyboard shortcuts (Space, Arrows, V, M, C, X)
@@ -528,6 +538,8 @@ playlist.forEach(video => {
 - Weighted shuffle algorithm for loved songs
 - Smart navigation through play history
 - Skip detection and penalty enforcement
+- Toast notification system (emoji-only, auto-hide)
+- Dynamic page title with loved song indicator
 - Responsive design (mobile/tablet/desktop)
 - Keyboard shortcuts for power users
 - Pointer events management to prevent YouTube player interaction

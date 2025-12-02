@@ -51,13 +51,16 @@ Your listening history? Saved. Your loved songs? Remembered. Your vibe? Preserve
 <td width="50%">
 
 ### ❤️ **Love Language**
-Hit that love button and watch your favorite songs appear **3x more often**. It's like weighted dice, but for music.
+Hit that love button and watch your favorite songs appear **3x more often**. Toast notification confirms your choice. Loved songs show ❤️ in the browser tab title.
 
 ### ⌨️ **Keyboard Wizard**
 Too cool for clicking? We got you. Space, arrows, V, C, X. You're basically a DJ now.
 
 ### 👻 **Ghost Controls**
 Controls appear when you need them, vanish when you don't. They're like ninjas, but for UI.
+
+### 🍞 **Toast Notifications**
+Love or unlove a song? Get instant emoji feedback (❤️ / 💔) that appears and fades away gracefully.
 
 ### ⚠️ **Penalty Mode**
 Skip too many songs too fast? The player fights back. Skip 5 songs in under 10 seconds each, and you're locked out of the next button for 3 songs. Patience is a virtue.
@@ -187,6 +190,8 @@ Ever wondered what Bill Wurtz songs look like in emoji form? Wonder no more:
 - **Auto-Hide Controls**: They know when to leave you alone
 - **Resume Playback**: Picks up where you left off
 - **Penalty Mode**: Skip 5 songs in under 10 seconds each? Next button locks for 3 songs. The player has standards.
+- **Toast Notifications**: Emoji-only feedback (❤️ / 💔) when loving/unloving songs
+- **Loved Indicator**: Browser tab shows ❤️ emoji when playing a loved song
 - **Responsive Design**: Looks good on your phone, tablet, or that weird ultrawide monitor
 
 </details>
@@ -237,8 +242,9 @@ round_1/
 ## 🎪 Fun Facts
 
 - **98 videos** translated to emojis (including the legendary history videos!)
-- **0 words** in the UI (we counted)
+- **0 words** in the UI (we counted - even the toast is emoji-only!)
 - **3x** more likely to hear loved songs
+- **2 seconds** toast notification duration
 - **5 seconds** until controls auto-hide
 - **10 seconds** minimum listen time before skip (or face the penalty!)
 - **3 songs** penalty for excessive skipping
