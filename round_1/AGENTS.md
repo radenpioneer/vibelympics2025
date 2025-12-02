@@ -247,7 +247,8 @@ Web-based video player that plays Bill Wurtz music videos from a YouTube playlis
 - Penalty countdown: 1️⃣2️⃣3️⃣ (replaces ⏭️ during penalty)
 - Currently playing indicator: 🔊 in recent plays list
 - Toast notification: ❤️ (loved) / 💔 (unloved) - appears at top center for 2 seconds
-- Browser tab title: Shows ❤️ emoji when playing a loved song
+- Browser tab title: Shows [❤️] with square brackets when playing a loved song
+- Title format: [❤️] <song emoji> - <project name> (loved) or <song emoji> - <project name> (regular)
 
 ### Technical Challenges & Solutions
 
@@ -390,7 +391,8 @@ round_1/
 - [x] Keyboard shortcuts work (Space, Arrows, V, M, C, X)
 - [x] Mute/unmute functionality (M key)
 - [x] Page title updates with song emoji when playing
-- [x] Page title shows ❤️ emoji for loved songs
+- [x] Page title shows [❤️] with square brackets for loved songs
+- [x] Page title updates immediately when song is loved/unloved
 - [x] Toast notification on love/unlove (❤️ / 💔)
 - [x] Toast is emoji-only (no text)
 - [x] Toast auto-hides after 2 seconds

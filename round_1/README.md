@@ -51,7 +51,7 @@ Your listening history? Saved. Your loved songs? Remembered. Your vibe? Preserve
 <td width="50%">
 
 ### ❤️ **Love Language**
-Hit that love button and watch your favorite songs appear **3x more often**. Toast notification confirms your choice. Loved songs show ❤️ in the browser tab title.
+Hit that love button and watch your favorite songs appear **3x more often**. Toast notification confirms your choice. Loved songs show [❤️] with square brackets in the browser tab title, updating instantly.
 
 ### ⌨️ **Keyboard Wizard**
 Too cool for clicking? We got you. Space, arrows, V, C, X. You're basically a DJ now.
@@ -191,7 +191,7 @@ Ever wondered what Bill Wurtz songs look like in emoji form? Wonder no more:
 - **Resume Playback**: Picks up where you left off
 - **Penalty Mode**: Skip 5 songs in under 10 seconds each? Next button locks for 3 songs. The player has standards.
 - **Toast Notifications**: Emoji-only feedback (❤️ / 💔) when loving/unloving songs
-- **Loved Indicator**: Browser tab shows ❤️ emoji when playing a loved song
+- **Loved Indicator**: Browser tab shows [❤️] with square brackets when playing a loved song, updates instantly
 - **Responsive Design**: Looks good on your phone, tablet, or that weird ultrawide monitor
 
 </details>
@@ -281,6 +281,52 @@ Is this necessary? Absolutely not.
 Is this the future of music players? Probably not.
 
 Is it fun? **Hell yeah.** 🎉
+
+---
+
+## 📝 Notes for Judges
+
+### 🎯 Challenge Interpretation
+
+**"Emoji-only UI"** - We took this literally. Every single interactive element, button, label, notification, and title is an emoji. Even the toast notifications that appear when you love/unlove a song are pure emoji (❤️ / 💔). The browser tab title uses emojis for everything, including the [❤️] loved indicator.
+
+**"Get weird"** - We added a penalty mode. Skip too many songs too fast (5 skips under 10 seconds each), and the player locks you out of the next button for 3 songs. The countdown shows as emoji numbers (1️⃣2️⃣3️⃣). It's like the player is saying "no, you need to actually listen to Bill Wurtz."
+
+### 🎨 Design Decisions
+
+**Why Bill Wurtz?** His music is already weird, colorful, and chaotic. Translating his song titles to emojis felt natural. Plus, we included his legendary history videos (history of the entire world, i guess / history of japan).
+
+**Why penalty mode?** To discourage mindless skipping and encourage actual listening. It's a music player with opinions.
+
+**Why weighted shuffle?** Loved songs appear 3x more often because if you love something, you should hear it more. Simple.
+
+**Why localStorage?** Your listening history, loved songs, and even your penalty status persist across sessions. The player remembers your relationship with it.
+
+### 🔍 Things to Try
+
+1. **Love a song** (V key or ❤️ button) - Watch the browser tab title update instantly with [❤️]
+2. **Skip rapidly** - Try to skip 5 songs in under 10 seconds each. The penalty mode will activate.
+3. **Check the history** - Recent plays sidebar (📜 button or C key) shows your listening journey
+4. **Keyboard shortcuts** - Space, Arrows, V, M, C, X - full keyboard control
+5. **Auto-hide controls** - Let the video play for 5 seconds, controls fade away
+6. **Page title** - Watch it change with each song, showing [❤️] for loved tracks
+
+### 🛠️ Technical Highlights
+
+- **No build process** - Vanilla JS + Alpine.js from CDN
+- **16.9MB container** - Chainguard nginx, minimal and secure
+- **98 videos** - All pre-fetched, no API keys needed
+- **localStorage** - Plays, loves, and skip tracking all persisted
+- **Responsive** - Works on mobile, tablet, and desktop
+- **Emoji-only** - Not a single word in the UI (we counted)
+
+### 🎵 Easter Eggs
+
+- The project name in the tab (🎵📻🎨) is itself emoji-only
+- Toast notifications slide in from the top with a gradient background
+- The penalty countdown pulses with a red glow
+- Currently playing song in history has a pulsing ▶️ indicator
+- Loved songs in the shuffle queue appear 3x more often (weighted algorithm)
 
 ---
 
