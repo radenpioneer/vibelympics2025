@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎵📻🎨 Bill Wurtz Radio</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="playlist-data.js"></script>
+</head>
+<body>
+  <div id="app" x-data="player()" x-init="init()" 
+       @keydown.space.prevent="togglePlay()"
+       @keydown.arrow-right.prevent="next()"
+       @keydown.arrow-left.prevent="previous()"
+       @keydown.v.prevent="toggleLove()"
+       @keydown.c.prevent="togglePlaylist()"
+       @keydown.x.prevent="clearRecentPlays()"
+       @keydown.m.prevent="toggleMute()"
+       tabindex="0">
+    
+    <!-- Fullscreen Video Player -->
+    <div class="fullscreen-player" @mousemove="showControls()" @touchstart="showControls()" @click="showControls()">
+      <div id="youtube-player"></div>
+      <div class="video-overlay" x-show="!playerReady">⏳</div>
+    </div>
+
+    <!-- Floating Controls (auto-hide when playing) -->
+    <div class="floating-controls" :class="{ 'hidden': isPlaying && !controlsVisible }">
+      
+      <!-- Player Controls (centered) -->
+      <div class="controls">
+        <button @click="previous()" class="control-btn" :disabled="!playerReady || !canGoPrevious() || songsUntilNextEnabled > 0">⏮️</button>
+        <button @click="togglePlay()" class="control-btn play-pause" :disabled="!playerReady">
+          <span x-show="!isPlaying">▶️</span>
+          <span x-show="isPlaying">⏸️</span>
+        </button>
+        <button @click="next()" class="control-btn" :disabled="!playerReady || !canGoNext()" :class="{ 'penalty': songsUntilNextEnabled > 0 }">
+          <span x-show="songsUntilNextEnabled === 0">⏭️</span>
+          <span x-show="songsUntilNextEnabled > 0" x-text="getPenaltyEmoji()"></span>
+        </button>
+      </div>
+
+      <!-- Current Video Title (bottom center) -->
+      <div class="current-video">
+        <div class="video-title" x-text="currentVideo.emojiTitle"></div>
+      </div>
+
+    </div>
+
+    <!-- Mute & Love Buttons (right edge) -->
+    <div class="side-buttons-container" :class="{ 'hidden': isPlaying && !controlsVisible }">
+      <button @click="toggleMute()" class="control-btn mute-btn small-btn" :disabled="!playerReady">
+        <span x-show="!isMuted">🔊</span>
+        <span x-show="isMuted">🔇</span>
+      </button>
+      <button @click="toggleLove()" class="control-btn love-btn small-btn" :disabled="!playerReady" :class="{ 'loved': isLoved(currentVideo.id) }">
+        <span x-show="!isLoved(currentVideo.id)">🤍</span>
+        <span x-show="isLoved(currentVideo.id)">❤️</span>
+      </button>
+    </div>
+
+    <!-- Recent Plays (collapsible) -->
+    <div class="recent-plays" :class="{ 'collapsed': recentCollapsed }">
+      <button class="recent-toggle" @click="togglePlaylist()">
+        <span x-show="!recentCollapsed">📜</span>
+        <span x-show="recentCollapsed">📜</span>
+      </button>
+      <div class="recent-content" x-show="!recentCollapsed">
+        <div class="recent-header-row">
+          <div class="recent-header">📜</div>
+          <button @click="clearRecentPlays()" class="clear-btn" x-show="recentPlays.length > 0">🗑️</button>
+        </div>
+        <div class="recent-list">
+          <template x-for="(video, index) in recentPlays" :key="video.timestamp">
+            <div class="recent-item" :class="{ 'currently-playing': index === recentPlaysIndex }">
+              <span class="recent-emoji" x-text="video.emojiTitle"></span>
+              <span class="playing-indicator" x-show="index === recentPlaysIndex">▶️</span>
+            </div>
+          </template>
+          <div x-show="recentPlays.length === 0" class="recent-empty">🎵</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" x-show="toastVisible" :class="{ 'hidden': !toastVisible }" x-text="toastMessage"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

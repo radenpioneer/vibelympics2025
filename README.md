@@ -15,9 +15,75 @@ To register for the competition, follow these steps:
 
 After registering, take next steps:
 
-1. Edit this README with information related to the projects you create for the competition.
-2. When the competition starts on December 1st, review the folder for the first round of Vibelympics for information on the challenge. You'll also receive an email from us.
-3. Start vibing!
+1. ~~Edit this README with information related to the projects you create for the competition.~~ ✅
+2. ~~When the competition starts on December 1st, review the folder for the first round of Vibelympics for information on the challenge. You'll also receive an email from us.~~ ✅
+3. ~~Start vibing!~~ ✅ **VIBING IN PROGRESS**
+
+---
+
+## 🎵 Our Submissions
+
+<div align="center">
+
+### 📻 Round 1: Bill Wurtz Radio 🎨
+
+```
+╔═══════════════════════════════════════════════════════════╗
+║  🌈  AN EMOJI-ONLY MUSIC PLAYER THAT FIGHTS BACK  ⚠️  ║
+╚═══════════════════════════════════════════════════════════╝
+```
+
+[![Made with Emojis](https://img.shields.io/badge/Made%20with-Emojis-ff69b4?style=for-the-badge)](round_1/)
+[![Powered by Bill Wurtz](https://img.shields.io/badge/Powered%20by-Bill%20Wurtz-00d4ff?style=for-the-badge)](https://www.youtube.com/@billwurtz)
+[![Chainguard Inside](https://img.shields.io/badge/Chainguard-Inside-00b4d8?style=for-the-badge)](https://chainguard.dev)
+[![Has Penalty Mode](https://img.shields.io/badge/Has-Penalty%20Mode-ff4444?style=for-the-badge)](round_1/)
+
+**🌐 [LIVE DEMO](https://billwurtzradio.up.railway.app/) | 📖 [Full Documentation](round_1/README.md)**
+
+</div>
+
+#### 🎭 What Is It?
+
+A fullscreen music video player featuring **98 Bill Wurtz videos** with an interface made **entirely of emojis**. No words. No text. Just vibes. And if you skip too many songs too fast? The player **locks you out**. That's right—penalty mode.
+
+#### ✨ The Highlights
+
+- 🎵 **98 Videos** - 95 music videos + 3 legendary history videos
+- 🚫 **Zero Text** - Every button, label, and title is an emoji
+- ⚠️ **Penalty Mode** - Skip 5 songs under 10 seconds? Next button locks for 3 songs
+- ❤️ **Weighted Shuffle** - Loved songs appear 3x more often
+- 💾 **localStorage Magic** - Remembers your plays, loves, and even your sins (skips)
+- ⌨️ **Keyboard Shortcuts** - Space, Arrows, V, M, C, X (for the cool kids)
+- 👻 **Ghost Controls** - Auto-hide after 5 seconds when playing
+- 📜 **Smart History** - Navigate through your actual listening history
+- 🐳 **Tiny Container** - Chainguard nginx, only 16.9MB
+
+#### 🚀 Quick Start
+
+**Try it live:** [https://billwurtzradio.up.railway.app/](https://billwurtzradio.up.railway.app/)
+
+Or run locally:
+```bash
+cd round_1
+docker build -t bill-wurtz-radio .
+docker run -p 8080:8080 bill-wurtz-radio
+# Open http://localhost:8080 and prepare for vibes
+```
+
+#### 🎯 Challenge Compliance
+
+| Requirement | Status | Notes |
+|:------------|:------:|:------|
+| Emoji-only UI | ✅ | Not a single word in the interface |
+| Functional App | ✅ | 98 videos, full player controls |
+| Chainguard Container | ✅ | nginx, 16.9MB |
+| Gets Weird | ✅✅✅ | Penalty mode says hello |
+
+**[📖 Full Documentation →](round_1/README.md)**
+
+---
+
+</div>
 
 ## Schedule
 
