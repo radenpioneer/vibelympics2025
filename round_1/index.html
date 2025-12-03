@@ -3,7 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
   <title>🎵📻🎨 Bill Wurtz Radio</title>
+  <meta name="description" content="An emoji-only music player featuring 98 Bill Wurtz videos. Fullscreen immersion, weighted shuffle, penalty mode, and pure vibes. No words, just emojis.">
+  <meta name="keywords" content="Bill Wurtz, music player, emoji, radio, YouTube, music videos, shuffle, playlist">
+  <meta name="author" content="Vibelympics 2025">
+  <meta name="theme-color" content="#ff69b4">
+  <link rel="canonical" href="https://billwurtzradio.up.railway.app/">
+  
+  <!-- Additional Meta Tags -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Bill Wurtz Radio">
+  <link rel="author" href="humans.txt">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://billwurtzradio.up.railway.app/">
+  <meta property="og:title" content="🎵📻🎨 Bill Wurtz Radio">
+  <meta property="og:description" content="An emoji-only music player featuring 98 Bill Wurtz videos. Fullscreen immersion, weighted shuffle, penalty mode, and pure vibes.">
+  <meta property="og:image" content="https://billwurtzradio.up.railway.app/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/svg+xml">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://billwurtzradio.up.railway.app/">
+  <meta property="twitter:title" content="🎵📻🎨 Bill Wurtz Radio">
+  <meta property="twitter:description" content="An emoji-only music player featuring 98 Bill Wurtz videos. Fullscreen immersion, weighted shuffle, penalty mode, and pure vibes.">
+  <meta property="twitter:image" content="https://billwurtzradio.up.railway.app/og-image.svg">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" sizes="16x16" href="icon-16.svg">
+  <link rel="icon" type="image/svg+xml" sizes="32x32" href="icon-32.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon-180.svg">
+  <link rel="apple-touch-icon" sizes="192x192" href="icon-192.svg">
+  <link rel="apple-touch-icon" sizes="512x512" href="icon-512.svg">
+  
+  <!-- PWA Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bill Wurtz Radio">
+  
   <link rel="stylesheet" href="style.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="playlist-data.js"></script>
@@ -89,5 +134,20 @@
   </div>
 
   <script src="app.js"></script>
+  
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('🎵 Service Worker registered:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('❌ Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+# Bill Wurtz Radio - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://billwurtzradio.up.railway.app/sitemap.xml
+
+# Crawl-delay (be nice to our server)
+Crawl-delay: 1
