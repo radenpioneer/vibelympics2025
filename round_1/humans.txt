@@ -1,0 +1,30 @@
+/* TEAM */
+  Creator: Vibelympics 2025 Participant
+  Site: https://billwurtzradio.up.railway.app
+  Location: Internet
+
+/* THANKS */
+  Bill Wurtz - For the amazing music and videos
+  Chainguard - For the minimal container images
+  Alpine.js - For the reactive framework
+  YouTube - For the IFrame API
+
+/* SITE */
+  Last update: 2024/12/03
+  Language: Emoji / English
+  Doctype: HTML5
+  IDE: AI-assisted development
+  Components: Alpine.js, YouTube IFrame API
+  Standards: HTML5, CSS3, ES6+
+  
+/* VIBES */
+  🎵 98 Bill Wurtz videos
+  📻 Emoji-only interface
+  🎨 Fullscreen immersion
+  ❤️ Weighted shuffle
+  ⚠️ Penalty mode
+  💾 localStorage persistence
+  ⌨️ Keyboard shortcuts
+  👻 Auto-hide controls
+  📜 Smart history
+  🍞 Toast notifications
