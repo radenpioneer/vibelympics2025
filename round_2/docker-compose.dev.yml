@@ -1,0 +1,11 @@
+services:
+  dev:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    command: npm run dev
+    environment:
+      - WATCHPACK_POLLING=true # Often needed for hot reload on mounted volumes

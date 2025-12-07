@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-imperial-cyan: #00FFFF;
+  --color-imperial-red: #990000;
+  --color-imperial-dim: #004444;
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+
+  --font-mono: 'Courier New', Courier, monospace;
+
+  --animate-flicker: flicker 0.15s infinite;
+  --animate-scanline: scanline 8s linear infinite;
+
+  @keyframes flicker {
+    0% {
+      opacity: 0.97;
+    }
+
+    5% {
+      opacity: 0.95;
+    }
+
+    10% {
+      opacity: 0.9;
+    }
+
+    15% {
+      opacity: 0.95;
+    }
+
+    20% {
+      opacity: 0.99;
+    }
+
+    50% {
+      opacity: 0.95;
+    }
+
+    80% {
+      opacity: 0.9;
+    }
+
+    100% {
+      opacity: 0.97;
+    }
+  }
+
+  @keyframes scanline {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+}

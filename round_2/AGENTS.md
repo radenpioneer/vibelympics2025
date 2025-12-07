@@ -6,6 +6,11 @@
 
 ---
 
+## @Directive: Consult Next.js Documentation
+Before executing any task, you must consult the Next.js documentation via the MCP server defined in `round_2/.mcp.json`. This ensures all actions align with the latest Next.js best practices and configurations.
+
+---
+
 ## @Project_Context
 The goal is to build a tool that accepts an npm package name (the "asset") and returns a security/risk audit in a highly structured, Imperial-themed report.
 - **Ecosystem:** Primary target is **npm**.
