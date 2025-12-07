@@ -1,11 +1,15 @@
 {
   "name": "Vibelympics 2025",
-  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-azuretools.vscode-docker"
       ]
     }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/node:1": {}
   }
 }
