@@ -2,8 +2,11 @@ export interface AuditResult {
     packageName: string;
     complianceRating: number; // 0-100
     riskFactors: RiskFactor[];
-    rawMetadata: any;
+    rawMetadata: NpmMetadata;
     interrogationTranscript: string;
+    versions?: Record<string, any>;
+    time?: Record<string, string>;
+    "dist-tags"?: { latest: string;[key: string]: string };
 }
 
 export interface RiskFactor {
@@ -17,12 +20,16 @@ export interface RiskFactor {
 
 export interface NpmMetadata {
     name: string;
-    version: string;
     description: string;
     maintainers: { name: string; email: string }[];
-    time: { [key: string]: string };
-    repository?: { type: string; url: string };
-    scripts?: { [key: string]: string };
+    "dist-tags": { latest: string;[key: string]: string };
+    versions: Record<string, any>;
+    time?: Record<string, string>;
     license?: string;
+    version: string;
+    scripts?: { [key: string]: string };
+    repository?: string | { type: string; url: string }; // Can be string or object
     dist?: { shasum: string; tarball: string; integrity?: string };
+    author?: { name: string; email?: string; url?: string };
+    homepage?: string;
 }

@@ -1,23 +1,49 @@
-"use server";
-
+import { cache } from 'react';
 import { getNpmPackageData, analyzePackage } from "@/lib/analyzer";
-import { AuditResult } from "@/types/analyzer";
+import { NpmMetadata, AuditResult } from "@/types/analyzer";
+import { compareVersions, getOsvVulnerabilities, Vulnerability } from "@/lib/osv";
 
-export async function analyzePackageAction(packageName: string): Promise<{ success: boolean; data?: AuditResult; error?: string }> {
-    if (!packageName) {
-        return { success: false, error: "Package designation required." };
+// Deduplicate requests for the same package/version within a render cycle
+export const cachedGetNpmPackage = cache(async (packageName: string): Promise<NpmMetadata | null> => {
+    return await getNpmPackageData(packageName);
+});
+
+export const cachedAnalysis = cache(async (packageName: string, version?: string): Promise<AuditResult | null> => {
+    const data = await cachedGetNpmPackage(packageName);
+    if (!data) return null;
+    return analyzePackage(data, version);
+});
+
+// Explicit versions fetcher (Robust fallback)
+export const cachedGetVersions = cache(async (packageName: string): Promise<string[]> => {
+    console.log(`[Cache] Fetching versions for ${packageName}`);
+    const data = await cachedGetNpmPackage(packageName);
+    if (!data) {
+        console.log(`[Cache] No data found for ${packageName}`);
+        return [];
     }
 
-    try {
-        const data = await getNpmPackageData(packageName);
-        if (!data) {
-            return { success: false, error: "Asset not found in Galactic Registry." };
+    // Try time-based sort first
+    if (data.time) {
+        const timeKeys = Object.keys(data.time).filter(k => k !== 'modified' && k !== 'created');
+        if (timeKeys.length > 0) {
+            return timeKeys.sort((a, b) => {
+                return new Date(data.time![b]).getTime() - new Date(data.time![a]).getTime();
+            });
         }
-
-        const result = analyzePackage(data);
-        return { success: true, data: result };
-    } catch (err) {
-        console.error("Analysis failed:", err);
-        return { success: false, error: "System failure. Unable to complete audit." };
     }
-}
+
+    // Fallback to versions object keys (usually semver sorted-ish or insertion order)
+    if (data.versions) {
+        const keys = Object.keys(data.versions);
+        // Sort using custom semver comparator (Newest/Highest first)
+        return keys.sort((a, b) => compareVersions(b, a));
+    }
+
+    return [];
+});
+
+export const cachedGetVulns = cache(async (packageName: string, version: string): Promise<Vulnerability[]> => {
+    return await getOsvVulnerabilities(packageName, version);
+});
+

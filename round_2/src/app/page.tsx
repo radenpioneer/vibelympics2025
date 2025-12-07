@@ -1,50 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import { SearchForm } from "@/components/ui/SearchForm";
-import { ReportDashboard } from "@/components/ui/ReportDashboard";
-import { analyzePackageAction } from "@/app/actions";
-import { AuditResult } from "@/types/analyzer";
+// import { ReportDashboard } from "@/components/ui/ReportDashboard"; // Removed: Dashboard is now at /[package]
+import { PopularPills } from "@/components/ui/PopularPills";
 
 export default function Home() {
-  const [result, setResult] = useState<AuditResult | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSearch = async (query: string) => {
-    setLoading(true);
-    setError(null);
-    setResult(null);
-
-    try {
-      const res = await analyzePackageAction(query);
-      if (res.success && res.data) {
-        setResult(res.data);
-      } else {
-        setError(res.error || "Unknown error occurred.");
-      }
-    } catch (err) {
-      setError("Transmission interrupted.");
-    } finally {
-      setLoading(false);
-    }
+    // Navigate to the dynamic package page
+    router.push(`/${query}`);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-full w-full max-w-7xl mx-auto">
-
-      {!result ? (
-        <div className="w-full transition-all duration-500">
-          <SearchForm onSearch={handleSearch} isLoading={loading} />
-          {error && (
-            <div className="mt-8 text-center text-imperial-red font-bold animate-pulse border border-imperial-red p-2 bg-black/50 inline-block">
-              [ERROR] {error}
-            </div>
-          )}
-        </div>
-      ) : (
-        <ReportDashboard result={result} onReset={() => setResult(null)} />
-      )}
+    <div className="flex flex-col items-center justify-center min-h-full h-full w-full">
+      <div className="w-full max-w-3xl transform -translate-y-12">
+        <SearchForm onSearch={handleSearch} />
+        <PopularPills />
+      </div>
 
       {/* Footer Branding */}
       <div className="fixed bottom-4 right-6 text-[10px] opacity-30 text-imperial-cyan text-right">

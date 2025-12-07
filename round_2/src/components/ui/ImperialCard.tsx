@@ -26,7 +26,7 @@ export function ImperialCard({ children, title, className = "", variant = 'defau
                 </div>
             )}
 
-            <div className="relative z-10">
+            <div className="relative z-10 h-full w-full flex flex-col">
                 {children}
             </div>
         </div>
